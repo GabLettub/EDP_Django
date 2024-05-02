@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+    {% load static %}
+    {% block content %}
+        <div class="px-16">
+            <form id="student-form" onsubmit="addStudent(); return false;" class="">
+                <id>
+                    <div>
+                        <label for="firstName" class="text-lg">First Name</label>
+                        <input type="text" id="firstName" name="firstName"  class="mt-2 border-2 rounded-md bg-gray-100 p-2 block w-full"/>
+                    </div>
+                    <br>
+                    <div>
+                        <label for="lastName" class="text-lg">Last Name</label>
+                        <input type="text" id="lastName" name="lastName"  class="mt-2 border-2 rounded-md bg-gray-100 p-2 block w-full"/>
+                    </div>
+                    <br>
+                    <label class="text-lg">Gender</label>
+                    <div class="flex gap-16">
+                        <div>
+                            <div>
+                                <input type="radio" id="male" name="gender" value="MALE" class="w-4 h-4"/> 
+                                <label for="male" class="text-lg">Male</label>
+                            </div>
+                            <div>
+                                <input type="radio" id="female" name="gender" value="FEMALE" class="w-4 h-4"/>
+                                <label for="female" class="text-lg">Female</label>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <div>
+                        <label for="age" class="text-lg">Age</label>
+                        <input type="text" id="age" name="age"  class="mt-2 border-2 rounded-md bg-gray-100 p-2 block w-full"/>
+                    </div>
+                    <br>
+                    <div>
+                        <div>
+                            <label for="position">Position</label>
+                            <select id="position" name="position" class="mt-2 border-2 rounded-md bg-gray-100 p-2 block w-full">
+                                <option value="Teacher">Teacher</option>
+                                <option value="Student">Student</option>
+                            </select>
+                        </div>
+                    </div>
+                    <br>
+                    <div>
+                        <div class="text-center">
+                            <input type="submit" 
+                            value="Add Student" 
+                            class="bg-green-600 px-4 py-2 text-white rounded-md cursor-pointer hover:bg-green-700 hover:shadow-lg hover:text-black">
+                        </div>
+                    </div>
+                </id>
+            </form>
+
+            <input 
+                type="text" 
+                class="mt-2 border-2 rounded-md bg-gray-100 p-2 block w-full"
+                placeholder="Search Something..."
+                id="search-student"
+                oninput="filterStudents()"
+            />
+
+            <table id="student-table" class="mt-4 w-full text-sm text-left rtl:text-right text-gray-500">
+                <thead class="text-lg text-gray-700 uppercase bg-gray-50">
+                    <tr>
+                        <th scope="col" class="px-6 py-3">Full Name</th>
+                        <th scope="col" class="px-6 py-3">Gender</th>
+                        <th scope="col" class="px-6 py-3">Age</th>
+                        <th scope="col" class="px-6 py-3">Position</th>
+
+                    </tr>
+                </thead>
+                <tbody></tbody>
+                <tfoot></tfoot>
+            </table>
+        </div>
+        <script src="{% static 'scripts.js' %}"></script>
+    {% endblock %}
